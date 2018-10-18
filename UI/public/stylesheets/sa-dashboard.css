@@ -1,0 +1,77 @@
+@import url("dashboard.css");
+
+/* main styles */
+
+main .quick-tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    height: 10%;
+    width: 100%;
+    background: rgb(174, 121, 243);
+}
+
+.quick-tool {
+    margin: 30px;
+    font-size: large;
+    font-weight: 700;
+    
+}
+
+.quick-tool a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.quick-tool a:hover {
+    opacity: 0.7;
+}
+
+main .activity {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.acc-summary {
+    height: 700px;
+    width: 800px;
+    margin: 10px;
+    background: olivedrab;
+    padding: 10px;
+}
+
+.cart-summary {
+    height: 700px;
+    width: 600px;
+    margin: 10px;
+    background: teal;
+    padding: 10px;
+}
+
+.records-header, .cart-header {
+    font-size: 3em;
+    margin: 10px 10%;
+}
+
+.cart-content {
+    padding: 10px 20px;
+}
+
+/* .history {
+    padding-right: 20px;
+    
+} */
+
+#today, #this-week, #this-month, #all-sales {
+    margin: 30px 20px;
+}
+
+div h4 {
+    font-size: 1.5em;
+}
+
+div p {
+    padding: 5px 15px;
+}

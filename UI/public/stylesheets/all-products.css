@@ -1,0 +1,100 @@
+@import url("dashboard.css");
+
+main {
+    padding: 0 20px;
+}
+
+/* table styles */
+
+.table-container {
+    width: 100%;
+    height: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 20px 0;
+    color: black;
+}
+
+.table-wrapper {
+    width: 100%;
+    padding-right: 20px
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 1;
+    width: 100%;
+    margin-right: 20px;
+    border: 1px solid rgb(114, 114, 114);
+    background-color: whitesmoke;
+    position: relative;
+    overflow: hidden;
+}
+
+table td, table th {
+    padding-left: 8px;
+}
+
+table thead tr {
+    height: 60px;
+    background: rgb(51, 50, 51);
+}
+
+table tbody tr {
+    height: 50px;
+}
+
+table tbody tr:last-child {
+    border: 0;
+}
+
+table td, table th {
+    text-align: left;
+}
+
+.table-head th{
+    font-family: "Tahoma";
+    font-size: 18px;
+    color: whitesmoke;
+    line-height: 1.2;
+    font-weight: unset;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #c5c4c4;
+}
+
+tbody tr:hover {
+    color: whitesmoke;
+    background-color: steelblue;
+    cursor: pointer;
+}
+
+.column1 {
+    width: 260px;
+    padding-left: 40px;
+}
+
+.column2 {
+    width: 160px;
+}
+
+.column3 {
+    width: 245px;
+}
+
+.column4 {
+    width: 110px;
+}
+
+.column5 {
+    width: 120px;
+}
+
+.column6 {
+    width: 200px;
+    padding-right: 10px;
+}
