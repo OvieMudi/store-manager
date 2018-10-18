@@ -1,0 +1,8 @@
+@import url("dashboard.css");
+
+main .product-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    color: black;
+}
