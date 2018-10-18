@@ -5,7 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Page Title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" media="screen" href="../public/stylesheets/dashboard.css" />
+        <link rel="stylesheet" type="text/css" media="screen"
+            href="../public/stylesheets/sa-dashboard.css" />
         <script src="main.js"></script>
     </head>
     <body>
@@ -45,11 +46,64 @@
             </nav>
             
             <main>
-                Page content
+                <div class="quick-tools">
+                    <div class="quick-tool">
+                        <a href="#">Add items to cart</a> 
+                    </div>
+                    <div class="quick-tool">
+                            <a href="#">Checkout</a>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <div class="acc-summary">
+                        <div class="records-header">
+                            <h3>Sales Records</h3>
+                        </div>
+                        <div class="history">
+                            <div id="today">
+                                <h4>Today</h4>
+                                <p>Products: No sales today</p>
+                                <p>Total price: ₦ <span>0</span></p>
+                            </div>
+                            <div id="this-week">
+                                <h4>This week</h4>
+                                <p>Products: No sales this week</p>
+                                <p>Total price: ₦ <span>0</span></p>
+                            </div>
+                            <div id="this-month">
+                                <h4>This month</h4>
+                                <p>Products: No sales this month</p>
+                                <p>Total price: ₦ <span>0</span></p>
+                            </div>
+                            <div id="all-sales">
+                                <h4>All sales</h4>
+                                <p>Total number of products products sold: 0</p>
+                                <p>Total price of products: ₦ <span>0</span></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="cart-summary">
+                        <div class="cart-header">
+                            <h3>Cart</h3>
+                        </div>
+                        <div class="cart-content">
+                            <h4>Items in cart</h4>
+                        </div>
+                        <div class="cart-content">
+                            <p>Products: 0</p>
+                            <p>Total cost: ₦ <span>0</span></p>
+                            <p>Total items: <span>your cart is currently empty</span></p>
+                        </div>
+
+                    </div>
+                   
+                </div>
             </main>
             
             <footer>
-                Copyleft 2018. Store Manager, an open source project.
+                Store Manager - Copyleft 2018.
             </footer>
             </div>
     </body>

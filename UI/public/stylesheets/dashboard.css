@@ -1,20 +1,13 @@
-/* layout */
+/* general layout */
 
-* {
+html, body {
     margin: 0;
     padding: 0;
     font-size: normal;
-    overflow: hidden;
+    overflow: hidden scroll;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
-
-/* html,body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow: hidden;
-} */
-
 
 .container {
     display: grid;
@@ -40,7 +33,7 @@ header {
     align-items: center;
     background: steelblue;
     list-style: none;
-    padding: 5px 10px;
+    padding: 5px 0 5px 10px;
 }
 
 header div{
@@ -57,12 +50,12 @@ header a {
 }
 
 header a:hover {
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 
 header div li{
-      padding: 0 25px;
+      padding-right: 20px;
   }
   
 /* navigation styles */
@@ -75,7 +68,6 @@ nav {
     justify-content: space-around;
     color: white;
     background: rgb(51, 50, 51);
-    
 }
 
 nav p {
@@ -95,14 +87,17 @@ nav .nav-link {
 }
 
 nav .nav-link:hover {
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
+/* main content styles */
   
 main {
     grid-area: content;
-    background: rgb(241, 235, 235);
-  }
+    background: rgb(205, 235, 236); /* rgb(31, 39, 57) */
+    color: whitesmoke;
+}
+    
   
 footer {
     grid-area: footer;
@@ -110,7 +105,7 @@ footer {
     flex-direction: row-reverse;
     padding: 5px 10px;
     background: steelblue;
-    font-size: 1em;
+    font-size: small;
 }
 
 
@@ -129,11 +124,26 @@ footer {
           1fr /* Content */
           auto; /* Footer */
     }
+    
+
+    header {
+        font-size: 0.7em;
+    }
+
+    header div li{
+        padding-right: 10px;
+    }
+    
   
     nav {
         display: flex;
         flex-flow: row wrap;
+        font-size: 0.5em;
         margin: 0;
+    }
+
+    footer {
+        font-size: 0.5em
     }
 
   }
