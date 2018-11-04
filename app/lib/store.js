@@ -1,13 +1,15 @@
+import db from './db';
+
 class Store {
   constructor() {
     this.totalStock = undefined;
-    this.allProducts = {};
+    this.allProducts = db.store;
   }
 
   // Create new product and add to #allProducts
   addNewProduct(data) {
-    const key = data.id.toString();
-    this.allProducts[key] = {
+    const pid = data.id.toString();
+    this.allProducts[pid] = {
       name: data.name,
       id: data.id,
       price: data.price,
@@ -57,4 +59,4 @@ class Store {
   }
 }
 
-export default Store;
+export default new Store();
