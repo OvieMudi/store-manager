@@ -1,7 +1,7 @@
 // const assert = require('chai').assert;
 import { expect, assert } from 'chai';
-import { describe, it } from 'mocha';
-import Products from '../app/lib/products';
+import { describe, it, beforeEach } from 'mocha';
+import store from '../app/lib/store';
 
 
 const data1 = {
@@ -53,22 +53,20 @@ describe('Products Module', () => {
     minimum: true,
   };
 
-  // ============== products class =============
+  // ============== store class =============
 
-  describe('Products Class', () => {
+  describe('store Class', () => {
     it('should return an object', () => {
-      const products = new Products();
-      assert.typeOf(products, 'object');
+      assert.typeOf(store, 'object');
     });
 
     it('should have properties: totalStock, allProducts', () => {
-      const products = new Products();
-      expect(products).to.have.property('totalStock');
-      expect(products).to.have.property('allProducts');
+      expect(store).to.have.property('totalStock');
+      expect(store).to.have.property('allProducts');
     });
 
     it('should be an object', () => {
-      const { allProducts } = new Products();
+      const { allProducts } = store;
       assert.typeOf(allProducts, 'object');
     });
   });
@@ -76,46 +74,46 @@ describe('Products Module', () => {
   // ============ addNewProducts Method =============
 
   describe('#addNewProduct method', () => {
-    const products = new Products();
-
     it('should be a method', () => {
-      expect(products.addNewProduct).to.be.a('function');
+      expect(store.addNewProduct).to.be.a('function');
     });
 
     it('Should add new product to #allProducts object', () => {
-      products.addNewProduct(data1);
-      products.addNewProduct(data2);
-      expect(products.allProducts[key2].name)
+      store.addNewProduct(data1);
+      store.addNewProduct(data2);
+      expect(store.allProducts[key2].name)
         .to.equal(data2.name);
-      expect(products.allProducts[key2].id)
+      expect(store.allProducts[key2].id)
         .to.equal(data2.id);
-      expect(products.allProducts[key2].price)
+      expect(store.allProducts[key2].price)
         .to.equal(data2.price);
-      expect(products.allProducts[key2].quantity)
+      expect(store.allProducts[key2].quantity)
         .to.equal(data2.quantity);
-      expect(products.allProducts[key2].minimum)
+      expect(store.allProducts[key2].minimum)
         .to.equal(data2.minimum);
-      expect(products.allProducts[key2].image)
+      expect(store.allProducts[key2].image)
         .to.equal(data2.image);
     });
   });
 
   // =========== #getAllProducts Method ============
   describe('#getAllProducts Method', () => {
-    const products = new Products();
-    products.addNewProduct(data1);
-    products.addNewProduct(data2);
+    beforeEach(() => {
+      store.allProducts = {};
+      store.addNewProduct(data1);
+      store.addNewProduct(data2);
+    });
 
     it('Should be a function', () => {
-      assert.typeOf(products.getAllProducts, 'function');
+      assert.typeOf(store.getAllProducts, 'function');
     });
 
     it('Should return an object', () => {
-      assert.typeOf(products.getAllProducts(), 'object');
+      assert.typeOf(store.getAllProducts(), 'object');
     });
 
     it('Should get all products in the #allProducts object', () => {
-      const allProducts = products.getAllProducts();
+      const allProducts = store.getAllProducts();
       assert.equal(Object.keys(allProducts).length, 2, 'Number of contained objects should be 2');
       expect(allProducts[key2].name).to.be.a('string').which.equals(data2.name);
       expect(allProducts[key2].id).to.be.a('number').which.equals(data2.id);
@@ -124,14 +122,17 @@ describe('Products Module', () => {
 
   // ============= #setProduct Method ===========
   describe('#setProduct method', () => {
-    const products = new Products();
-    products.addNewProduct(data1);
-    products.addNewProduct(data2);
+    let modProduct;
+    beforeEach(() => {
+      store.allProducts = {};
+      store.addNewProduct(data1);
+      store.addNewProduct(data2);
+      modProduct = store.setProduct(newData);
+    });
 
-    const modProduct = products.setProduct(newData);
 
     it('Should should be an method', () => {
-      assert.typeOf(products.setProduct, 'function');
+      assert.typeOf(store.setProduct, 'function');
     });
 
     it('Should return an object', () => {
@@ -139,7 +140,7 @@ describe('Products Module', () => {
     });
 
     it('Should not add a new object to the #allproducts', () => {
-      assert.equal(Object.keys(products.allProducts).length, 2, 'Number of contained objects should be 2');
+      assert.equal(Object.keys(store.allProducts).length, 2, 'Number of contained objects should be 2');
     });
 
     it('Should set values of objects in #allProducts', () => {
@@ -155,15 +156,14 @@ describe('Products Module', () => {
 
   // ================ #setMininum Method ============
   describe('#setMinimum Method', () => {
-    const products = new Products();
-    products.addNewProduct(data1);
-    products.addNewProduct(data2);
-    products.addNewProduct(data3);
-    const modProduct1 = products.setProduct(newData);
-    const modProduct2 = products.setProduct(newData2);
+    store.addNewProduct(data1);
+    store.addNewProduct(data2);
+    store.addNewProduct(data3);
+    const modProduct1 = store.setProduct(newData);
+    const modProduct2 = store.setProduct(newData2);
 
     it('Should be a method', () => {
-      assert.typeOf(products.setMinimum, 'function');
+      assert.typeOf(store.setMinimum, 'function');
     });
 
     it('Should set the minimum number of products in stock', () => {
