@@ -1,9 +1,17 @@
-import { Router } from 'express';
+import express from 'express';
 import store from '../lib/store';
 
-// CREATE & READ routes
-Router.route('/api/v1/products')
-  .post(store.addProduct)
-  .get(store.getProducts);
+const Router = express.Router();
+
+// CREATE & READ
+Router.route('/')
+  .get(store.getProducts)
+  .post(store.postProduct);
+
+// READ, UPDATE & DELETE
+Router.route('/:id')
+  .get(store.getProduct)
+  .put(store.updateProduct)
+  .delete(store.removeProduct);
 
 export default Router;
