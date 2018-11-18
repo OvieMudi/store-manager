@@ -140,7 +140,7 @@ describe('All Store CRUD routes', () => {
       .then((res) => {
         expect(res).to.be.json; // eslint-disable-line no-unused-expressions
         expect(res).to.have.status(404);
-        expect(res.body).to.have.property('error').eqls('Product does not exist')
+        expect(res.body).to.have.property('error').eqls('Product does not exist');
         expect(Object.keys(db.store)).to.have.lengthOf(2);
       }));
 
@@ -149,7 +149,7 @@ describe('All Store CRUD routes', () => {
       .then((res) => {
         expect(res).to.be.json; // eslint-disable-line no-unused-expressions
         expect(res).to.have.status(200);
-        expect(res.body).to.have.property('message').eqls('Delete successful')
+        expect(res.body).to.have.property('message').eqls('Delete successful');
         expect(Object.keys(db.store)).to.have.lengthOf(1);
       }));
   });
